@@ -1,14 +1,8 @@
-CREATE TABLE student(
-    student_id SERIAL NOT NULL,
-    person_number VARCHAR(12) NOT NULL UNIQUE,
-    name VARCHAR(500),
-    address VARCHAR(500),
-    sibling_id VARCHAR(500)
-); 
 
 
-ALTER TABLE student ADD CONSTRAINT PK_student 
-PRIMARY KEY (student_id); 
+
+/*ALTER TABLE student ADD CONSTRAINT PK_student 
+PRIMARY KEY (student_id); */
 /*INSERT INTO student(student_id,person_number,name,
 address,sibling_id) VALUES(5,199401011339,'Jane',
 'radstreet420',3);*/
@@ -21,7 +15,7 @@ CREATE TABLE contact_phone(
 );
 
 ALTER TABLE contact_phone ADD CONSTRAINT PK_contact_phone 
-PRIMARY KEY (student_id, phone_number);
+PRIMARY KEY (student_id);
 
 CREATE TABLE contact_email(
     student_id SERIAL NOT NULL,
@@ -29,7 +23,7 @@ CREATE TABLE contact_email(
 );
 
 ALTER TABLE contact_email ADD CONSTRAINT PK_contact_email 
-PRIMARY KEY(student_id, email);
+PRIMARY KEY(student_id);
 
 CREATE TABLE student_phone(
     student_id SERIAL NOT NULL,
@@ -37,7 +31,7 @@ CREATE TABLE student_phone(
 );
 
 ALTER TABLE student_phone ADD CONSTRAINT PK_student_phone 
-PRIMARY KEY(student_id, phone_number);
+PRIMARY KEY(student_id);
 
 CREATE TABLE student_email(
     student_id SERIAL NOT NULL,
@@ -45,7 +39,7 @@ CREATE TABLE student_email(
 );
 
 ALTER TABLE student_email ADD CONSTRAINT PK_student_email 
-PRIMARY KEY(student_id, email);
+PRIMARY KEY(student_id);
 
 CREATE TABLE siblings(
     student_id SERIAL NOT NULL,
@@ -56,7 +50,7 @@ CREATE TABLE siblings(
 );
 
 ALTER TABLE siblings ADD CONSTRAINT PK_siblings 
-PRIMARY KEY(student_id, sibling_id, person_number, phone_number, email);
+PRIMARY KEY(student_id);
 
 CREATE TABLE payment_info(
     price_type_id SERIAL NOT NULL,
@@ -100,7 +94,7 @@ CREATE TABLE individual_lesson(
 );
 
 ALTER TABLE individual_lesson ADD CONSTRAINT PK_individual_lesson 
-PRIMARY KEY(level, type_of_instrument, lesson_id);
+PRIMARY KEY(lesson_id);
 
 CREATE TABLE group_lesson(
     level VARCHAR(500) NOT NULL,
@@ -112,7 +106,7 @@ CREATE TABLE group_lesson(
 );
 
 ALTER TABLE group_lesson ADD CONSTRAINT PK_group_lesson 
-PRIMARY KEY(level,type_of_instrument,number_of_students,lesson_id);
+PRIMARY KEY(lesson_id);
 
 CREATE TABLE ensemble(
     genre VARCHAR(500),
@@ -123,11 +117,12 @@ CREATE TABLE ensemble(
 );
 
 ALTER TABLE ensemble ADD CONSTRAINT PK_ensemble 
-PRIMARY KEY(genre,number_of_students,lesson_id);
+PRIMARY KEY(lesson_id);
 
 CREATE TABLE instrument(
     instrument_id SERIAL NOT NULL,
-    type_of_instrument VARCHAR(500)
+    type_of_instrument VARCHAR(500),
+    monthly_cost INT
 );
 
 ALTER TABLE instrument ADD CONSTRAINT PK_instrument 
@@ -136,7 +131,6 @@ PRIMARY KEY(instrument_id);
 CREATE TABLE rental_instruments(
     instrument_id SERIAL NOT NULL,
     rental_cap INT,
-    monthly_cost_rented_instrument INT,
     lease_period TIMESTAMP(10) NOT NULL,
     stock INT,
     brand VARCHAR(500),
@@ -164,6 +158,16 @@ CREATE TABLE teaches_instrument_type(
     instrument_id SERIAL NOT NULL,
     instructor_id SERIAL NOT NULL
 );
+
+
+CREATE TABLE student(
+    student_id SERIAL NOT NULL,
+    person_number VARCHAR(12) NOT NULL UNIQUE,
+    name VARCHAR(500),
+    address VARCHAR(500),
+    sibling_id VARCHAR(500),
+    PRIMARY KEY(student_id)
+); 
 
 ALTER TABLE teaches_instrument_type ADD CONSTRAINT PK_teaches_instrument_type 
 PRIMARY KEY(instrument_id, instructor_id);

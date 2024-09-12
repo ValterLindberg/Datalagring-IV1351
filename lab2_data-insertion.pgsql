@@ -361,36 +361,36 @@ VALUES
   ('Funk',3,15,14,15);
 
   --instrument
-INSERT INTO instrument(instrument_id,type_of_instrument)
+INSERT INTO instrument(instrument_id,type_of_instrument,monthly_cost)
 VALUES
-  (1,'Guitar'),
-  (2,'Piano'),
-  (3,'Bass'),
-  (4,'Saxophone'),
-  (5,'Violin'),
-  (6,'Trumpet'),
-  (7,'Clarinet'),
-  (8,'Cello');
+  (1,'Guitar',100),
+  (2,'Piano',100),
+  (3,'Bass',120),
+  (4,'Saxophone',150),
+  (5,'Violin',40),
+  (6,'Trumpet',90),
+  (7,'Clarinet',50),
+  (8,'Cello',120);
 
 
   --rental_instruments
-INSERT INTO rental_instruments (instrument_id,rental_cap,monthly_cost_rented_instrument,lease_period,stock,brand,student_id)
+INSERT INTO rental_instruments (instrument_id,rental_cap,lease_period,stock,brand,student_id)
 VALUES
-  (1,3,100,'2023-08-17 08:19:13',6,'Steinway',1),
-  (2,3,100,'2023-01-22 09:12:36',7,'Gibson',2),
-  (3,3,100,'2023-11-20 08:13:20',6,'Roland',3),
-  (4,3,100,'2023-08-30 10:50:09',3,'Yamaha',4),
-  (5,3,100,'2023-05-29 11:01:10',20,'Roland',5),
-  (6,3,100,'2023-11-05 10:09:50',28,'Sennheiser',6),
-  (7,3,100,'2023-10-01 11:16:09',4,'Steinway',7),
-  (8,3,100,'2023-03-10 09:13:18',26,'Sennheiser',8),
-  (9,3,100,'2023-11-13 13:12:37',23,'Shure',9),
-  (10,3,100,'2023-03-24 14:11:34',4,'Steinway',10),
-  (11,3,100,'2023-04-23 09:45:32',21,'Yamaha',11),
-  (12,3,100,'2023-09-09 12:30:20',26,'Shure',12),
-  (13,3,100,'2023-02-25 11:50:51',13,'Gibson',13),
-  (14,3,100,'2023-01-13 09:32:56',29,'Gibson',14),
-  (15,3,100,'2023-04-21 15:30:41',29,'Sennheiser',15);
+  (1,3,'2023-08-17 08:19:13',6,'Steinway',1),
+  (2,3,'2023-01-22 09:12:36',7,'Gibson',2),
+  (3,3,'2023-11-20 08:13:20',6,'Roland',3),
+  (4,3,'2023-08-30 10:50:09',3,'Yamaha',4),
+  (5,3,'2023-05-29 11:01:10',20,'Roland',5),
+  (6,3,'2023-11-05 10:09:50',28,'Sennheiser',6),
+  (7,3,'2023-10-01 11:16:09',4,'Steinway',7),
+  (8,3,'2023-03-10 09:13:18',26,'Sennheiser',8),
+  (9,3,'2023-11-13 13:12:37',23,'Shure',9),
+  (10,3,'2023-03-24 14:11:34',4,'Steinway',10),
+  (11,3,'2023-04-23 09:45:32',21,'Yamaha',11),
+  (12,3,'2023-09-09 12:30:20',26,'Shure',12),
+  (13,3,'2023-02-25 11:50:51',13,'Gibson',13),
+  (14,3,'2023-01-13 09:32:56',29,'Gibson',14),
+  (15,3,'2023-04-21 15:30:41',29,'Sennheiser',15);
 
   --instructor
 INSERT INTO instructor (instructor_id,person_number,name,address,teaches_ensemble,available_time_slot,phone_number,email)

@@ -50,7 +50,7 @@ CREATE TABLE siblings(
 );
 
 ALTER TABLE siblings ADD CONSTRAINT PK_siblings 
-PRIMARY KEY(student_id);
+PRIMARY KEY(sibling_id);
 
 CREATE TABLE payment_info(
     price_type_id SERIAL NOT NULL,
@@ -165,7 +165,6 @@ CREATE TABLE student(
     person_number VARCHAR(12) NOT NULL UNIQUE,
     name VARCHAR(500),
     address VARCHAR(500),
-    sibling_id VARCHAR(500),
     PRIMARY KEY(student_id)
 ); 
 

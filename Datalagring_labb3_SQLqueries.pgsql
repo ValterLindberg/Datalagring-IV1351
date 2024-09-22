@@ -1,5 +1,5 @@
 --total number of lessons month-wise 
-
+CREATE VIEW monthly_lessons AS
 SELECT TO_CHAR(time_slot, 'Mon') AS month, COUNT(*) AS Total_lessons, 
 COUNT(individual_lesson.lesson_id) AS Individual, COUNT(group_lesson.lesson_id) AS Grp,
 COUNT(ensemble.lesson_id) AS Ensemble
@@ -14,7 +14,7 @@ ORDER BY EXTRACT(MONTH FROM time_slot);
 
 
 --Students with no sibling, with one sibling, with two siblings
-
+CREATE VIEW count_siblings AS
 SELECT sibling_count AS Number_of_siblings, COUNT(student_id) AS Number_of_students
 FROM (
     SELECT student.student_id, COALESCE(COUNT(siblings.sibling_id), 0) AS sibling_count
